@@ -27,6 +27,7 @@
 
 		for (const keyword of keywords) {
 			if (keyword.toLowerCase().startsWith(value.toLowerCase())) return true;
+			break
 		}
 
 		return false;
@@ -71,9 +72,10 @@
 		{/if}
 	{/if}
 	{#each emojiData.categories as category (category.id)}
-		{@const emojis = category.emojis.filter((item) =>
+		<!-- {@const emojis = category.emojis.filter((item) =>
 			filter(pickerState.root.emojiPickerState.search, emojiData.emojis[item].keywords)
-		)}
+		)} -->
+		{@const emojis = category.emojis}
 		{#if emojis.length > 0}
 			<CommandPrimitive.Group>
 				<CommandPrimitive.GroupHeading class="text-muted-foreground px-2 py-1 text-xs">
